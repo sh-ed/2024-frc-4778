@@ -23,6 +23,7 @@ import frc.robot.subsystems.LiftSubsystem;
 import frc.robot.subsystems.LimelightSubsystem;
 import frc.robot.subsystems.AutoAim;
 import frc.robot.subsystems.AutoShoot;
+import frc.robot.subsystems.BlinkinSubsystem;
 import frc.robot.subsystems.LauncherPivotSubsystem;
 import frc.robot.subsystems.RobotPivotsSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
@@ -61,7 +62,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public final LauncherSubsystem m_launcherSubsystem = new LauncherSubsystem();
 
-  public final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  public final DriveSubsystem m_robotDrive = new DriveSubsystem();  
+  public final BlinkinSubsystem m_blinkin = new BlinkinSubsystem();
   public final LiftSubsystem m_lift = new LiftSubsystem();
   public final PivotSubsystem m_pivot = new PivotSubsystem();
   public final IntakeSubsystem m_intake = new IntakeSubsystem(m_launcherSubsystem, m_pivot);
@@ -314,6 +316,8 @@ public class RobotContainer {
         .onTrue(m_limelight.SpeakerAlignServoPos())
         .onFalse(m_limelight.AmpAlignServoPos());
 
+     new JoystickButton(m_driverController2, Button.kStart.value)
+        .onTrue(m_blinkin.BlinkinConfetti());
     // new JoystickButton(m_driverController2, Button.kLeftBumper.value)
     // .toggleOnTrue(m_lift.retractStep());
 
