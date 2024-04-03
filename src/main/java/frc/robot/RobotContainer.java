@@ -215,7 +215,7 @@ public class RobotContainer {
     new JoystickButton(m_driverController, Button.kX.value)
 
         .whileTrue(m_autoaim.AmpAlign())
-        
+        .whileTrue(m_blinkin.TVCheck())
         .onTrue(m_launcherSubsystem.stop())
         .onFalse(m_intake.stopIntake())
         .onFalse(m_pivot.setPivotGoalCommand(IntakeConstants.kPivotAngleSpeaker));
@@ -225,6 +225,7 @@ public class RobotContainer {
 
     new POVButton(m_driverController, 0)
         .whileTrue(m_autoaim.AmpAlignAdjustment())
+        .whileTrue(m_blinkin.TVCheck())
         .onTrue(m_launcherSubsystem.stop());
 
     new JoystickButton(m_driverController, Button.kA.value)
@@ -313,10 +314,11 @@ public class RobotContainer {
 
     new JoystickButton(m_driverController2, Button.kX.value)
         .whileTrue(m_autoShoot.SpeakerAlign())
+        .whileTrue(m_blinkin.TVCheck())
         .onTrue(m_limelight.SpeakerAlignServoPos())
         .onFalse(m_limelight.AmpAlignServoPos());
 
-     new JoystickButton(m_driverController2, Button.kStart.value)
+     new JoystickButton(m_driverController2, Button.kBack.value)
         .onTrue(m_blinkin.BlinkinConfetti());
     // new JoystickButton(m_driverController2, Button.kLeftBumper.value)
     // .toggleOnTrue(m_lift.retractStep());
