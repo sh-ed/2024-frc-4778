@@ -94,6 +94,8 @@ public class RobotContainer {
   public static final XboxController m_driverController2 = new XboxController(OperatorConstants.kDriverControllerPort2);
   public double spdLimit = DriveConstants.spdLimitFast;
   public double turnLimit = DriveConstants.turnLimitFast;
+  //button board controller
+  public static final XboxController m_driverController3 = new XboxController(OperatorConstants.kDriverControllerPort3);
 
   public boolean fieldCentric = false;
 
